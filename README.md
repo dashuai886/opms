@@ -1,69 +1,25 @@
-# OPMS
-OPMS项目+OA管理系统
+# opms
 
-OPMS管理系统是意思是PMS+OA，项目+办公管理。符合日常项目和OA管理，特别适合扁平化管理的微中小企业。
+一、go开发环境：
+  安装完go，使用 go env命令查看  GOPATH环境变量的路径指向，比如：/home/go_temp
+  
+  那么go_temp下必须要有  src目录，bin目录，pkg目录。
+  
+  作用分别是：
+   src下存放实际开发的项目，比如此项目，opms，就放在src下，src下可以放多个项目和github的三方库
 
-OPMS采用是Beego框架和Bootstrap前端框架构建立，适合不同平台，不同的终端，简单方便实用的原则。数据库采用Mysql，缓存采用Redis。在部署过程中，如果没有Redis，不影响使用。
+   bin目录是存放src中编译后的可执行文件
+       （生成可执行文件方法：在src下执行 go install opms 即可自动编译到bin目录下，报错无法编译成功，不要使用go build命令，会导致src下出现编译后的文件和未变异文件混淆的情况）
 
-本系统是免费的软件，部署很方便。
+   pkg目录是存放.a的文件，一般情况下使用go install命令即可，此文件夹用不到
 
-OPMS的由来：
 
-公司之前用的项目管理软件是禅道PMS，功能是很强大，学习成本也大。
 
-在实际的项目应用中，有许多功能点都用不到或者很少用，可能它的系统是面向不同行业项目管理吧。
 
-结合实际的项目要求和人事的日常工作经验要求，于是OPMS管理系统诞生了！
-# 创新设计·全新功能 织蝶云新品上线
-1. 织蝶云项目管理
-需求、任务、Bug、看板、思维导图、甘特图、日历、报表、列表多种任务视图
 
-2. 织蝶云客户CRM
-客户、公海、线索、商机、合同、售后、目标、统计多种嵌套功能
-
-3. 织蝶云审批流程
-智能工作流程及表单设计，自定权限控制，让每个流程实现自动化
-
-4. 织蝶云工作报告
-人性化的报告展示，轻松解决日报、周报、月报发布审阅，智能统计报告
-
-5. OA管理
-考勤、日程、文档 、知识、相册、人事简历、公告、IM聊天等丰富的功能
-
-# 新品地址：https://www.zhidieyun.com/
-
-OPMS官网：
-
-http://opms.milu365.cn/
-
-手册文档：
-
-http://opms.docs.milu365.cn/
-
-在线体验：
-
-http://opms.demo.milu365.cn/
-
-加QQ群（871221961）获取用户名和密码
-
-技术讨论群：
-
-# QQ群1(已满)：451420312 
-# QQ群2(已满)：592130397 
-# QQ群3(已满)：651479008
-# QQ群4(已满)：660307579
-# QQ群5(已满): 753661431 
-# QQ群6: 871221961
-
-# 捐赠
-支付宝：
-
-![image](https://github.com/lock-upme/OPMS/blob/master/static/img/qrcode_alipay.png)
-
-微信:
-
-![image](https://github.com/lock-upme/OPMS/blob/master/static/img/qrcode_wechat.png)
-
-# 效果图预览
-
-![image](https://github.com/lock-upme/OPMS/blob/master/static/img/opms-view.png)
+二、项目使用：
+  opms项目目录放在src下
+  本地开发完git提交源码（不提交编译后的可执行文件或二进制）
+  git提交后到远程机器拉代码，拉完使用 一、 中说明的go install命令进行项目整体编译
+  最终去执行bin下刚编译完的可执行文件（后台执行命令：nohup ./可执行文件 >>log.text 2>&1 &）
+  没报错说明正常，完事。
